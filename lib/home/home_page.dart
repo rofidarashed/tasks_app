@@ -9,7 +9,7 @@ import 'package:tasks_app/screens/Tasks/month_page.dart';
 import 'package:tasks_app/screens/Tasks/planned_page.dart';
 import 'package:tasks_app/screens/Tasks/today_page.dart';
 import 'package:tasks_app/screens/Tasks/week_page.dart';
-import 'package:tasks_app/screens/home/task_list.dart';
+import 'package:tasks_app/home/task_list.dart';
 
 class Task {
   late String title;
