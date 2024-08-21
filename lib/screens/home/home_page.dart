@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
-        TaskList(), //
+        TaskList(),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
