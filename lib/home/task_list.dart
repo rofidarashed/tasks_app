@@ -25,31 +25,36 @@ class _TaskListState extends State<TaskList> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ...uncheckedItems.map((item) => LabeledCheckbox(
-              label: item,
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              value: false,
-              onChanged: (bool newValue) {
-                _handleCheckboxChange(item, newValue);
-              },
-            )),
-        ExpansionTile(
-          title: Text('Completed'),
-          children: checkedItems
-              .map((item) => ListTile(
-                    title: Text(item),
-                    trailing: Checkbox(
-                      value: true,
-                      onChanged: (bool? newValue) {
-                        _handleCheckboxChange(item, newValue!);
-                      },
-                    ),
-                  ))
-              .toList(),
+    return Expanded(
+      child: Scrollbar(
+        thumbVisibility: true,
+        child: ListView(
+          children: [
+            ...uncheckedItems.map((item) => LabeledCheckbox(
+                  label: item,
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  value: false,
+                  onChanged: (bool newValue) {
+                    _handleCheckboxChange(item, newValue);
+                  },
+                )),
+            ExpansionTile(
+              title: Text('Completed'),
+              children: checkedItems
+                  .map((item) => ListTile(
+                        title: Text(item),
+                        trailing: Checkbox(
+                          value: true,
+                          onChanged: (bool? newValue) {
+                            _handleCheckboxChange(item, newValue!);
+                          },
+                        ),
+                      ))
+                  .toList(),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
@@ -67,6 +72,7 @@ class LabeledCheckbox extends StatefulWidget {
   final EdgeInsets padding;
   final bool value;
   final ValueChanged<bool> onChanged;
+  late List<String> importantItems = [];
 
   @override
   State<LabeledCheckbox> createState() => _LabeledCheckboxState();
@@ -101,8 +107,8 @@ class _LabeledCheckboxState extends State<LabeledCheckbox> {
                   icon: Icon(
                     Icons.star,
                     color: (isPressed)
-                        ? Color.fromARGB(243, 179, 124, 208)
-                        : Color.fromARGB(255, 129, 134, 135),
+                        ? Color.fromARGB(255, 129, 134, 135)
+                        : Color.fromARGB(243, 179, 124, 208),
                   ),
                 ),
                 Checkbox(

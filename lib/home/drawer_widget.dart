@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:tasks_app/screens/Tasks/important_page.dart';
 
 import '../screens/Tasks/month_page.dart';
 import '../screens/Tasks/planned_page.dart';
@@ -32,7 +33,12 @@ class DrawerWidget extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.star),
               title: Text('Important'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ImportantPage()));
+              },
             ),
             ListTile(
               leading: Icon(Icons.sunny),

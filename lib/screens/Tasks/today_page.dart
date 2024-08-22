@@ -7,11 +7,18 @@ class TodayPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        children: [
-          TaskList(),
-        ],
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('Today'),
+      ),
+      body: const TaskList(),
+      floatingActionButton: IconButton(
+        onPressed: () {},
+        icon: const Icon(
+          Icons.add,
+          color: Color.fromARGB(224, 83, 50, 101),
+          size: 40,
+        ),
       ),
     );
   }
