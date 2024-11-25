@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:tasks_app/screens/Tasks/important_page.dart';
+import 'package:tasks_app/screens/Tasks/trash_page.dart';
 
 import '../screens/Tasks/month_page.dart';
 import '../screens/Tasks/planned_page.dart';
@@ -72,6 +73,14 @@ class DrawerWidget extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => const PlannedPage()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.delete),
+              title: const Text('Trash'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const TrashPage()));
               },
             ),
             ListTile(

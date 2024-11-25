@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasks_app/home/actionButton.dart';
 import 'package:tasks_app/home/task_list.dart';
 
 class TodayPage extends StatelessWidget {
@@ -9,17 +10,10 @@ class TodayPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Today'),
+        title: const Text('Today'),
       ),
       body: const TaskList(),
-      floatingActionButton: IconButton(
-        onPressed: () {},
-        icon: const Icon(
-          Icons.add,
-          color: Color.fromARGB(224, 83, 50, 101),
-          size: 40,
-        ),
-      ),
+      floatingActionButton: ActionButton() ,
     );
   }
 }

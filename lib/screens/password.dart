@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:tasks_app/screens/home.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:tasks_app/tools/Colors/colors.dart';
 
 class Password extends StatelessWidget {
   const Password({super.key});
@@ -96,7 +97,7 @@ class MyCustomFormState extends State<MyCustomForm> {
           builder: (context) {
             return ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(235, 133, 78, 141),
+                backgroundColor: darkPurble1,
               ),
               onPressed: () {
                 setState(() {

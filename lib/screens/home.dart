@@ -14,13 +14,13 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        drawer: Drawer(
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        drawer: const Drawer(
           child: DrawerWidget(),
         ),
-        appBar: CustomAppBar(),
+        appBar: const CustomAppBar(),
         body: HomePage(),
       ),
     );

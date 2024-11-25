@@ -33,13 +33,13 @@ class _TaskListState extends State<TaskList> {
             ...uncheckedItems.map((item) => LabeledCheckbox(
                   label: item,
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  value: false,
+                  isChecked: false,
                   onChanged: (bool newValue) {
                     _handleCheckboxChange(item, newValue);
                   },
                 )),
             ExpansionTile(
-              title: Text('Completed'),
+              title: const Text('Completed'),
               children: checkedItems
                   .map((item) => ListTile(
                         title: Text(item),
@@ -59,60 +59,41 @@ class _TaskListState extends State<TaskList> {
   }
 }
 
+// ignore: must_be_immutable
 class LabeledCheckbox extends StatefulWidget {
-  LabeledCheckbox({
+  const LabeledCheckbox({
     super.key,
     required this.label,
     required this.padding,
-    required this.value,
+    required this.isChecked,
     required this.onChanged,
   });
 
   final String label;
   final EdgeInsets padding;
-  final bool value;
+  final bool isChecked;
   final ValueChanged<bool> onChanged;
-  late List<String> importantItems = [];
 
   @override
   State<LabeledCheckbox> createState() => _LabeledCheckboxState();
 }
 
 class _LabeledCheckboxState extends State<LabeledCheckbox> {
-  bool isPressed = true;
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         InkWell(
           onTap: () {
-            widget.onChanged(!widget.value);
+            widget.onChanged(!widget.isChecked);
           },
           child: Padding(
             padding: widget.padding,
             child: Row(
               children: <Widget>[
                 Expanded(child: Text(widget.label)),
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      if (isPressed) {
-                        isPressed = false;
-                      } else {
-                        isPressed = true;
-                      }
-                    });
-                  },
-                  icon: Icon(
-                    Icons.star,
-                    color: (isPressed)
-                        ? Color.fromARGB(255, 129, 134, 135)
-                        : Color.fromARGB(243, 179, 124, 208),
-                  ),
-                ),
                 Checkbox(
-                  value: widget.value,
+                  value: widget.isChecked,
                   onChanged: (bool? newValue) {
                     widget.onChanged(newValue!);
                   },

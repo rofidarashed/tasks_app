@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasks_app/screens/password.dart';
+import 'package:tasks_app/tools/Colors/colors.dart';
 
 class Start extends StatefulWidget {
   const Start({super.key});
@@ -19,7 +20,7 @@ class _StartState extends State<Start> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -68,7 +69,7 @@ class _StartState extends State<Start> {
               builder: (context) {
                 return ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(235, 133, 78, 141),
+                    backgroundColor: darkPurble1,
                   ),
                   onPressed: () {
                     setState(() {

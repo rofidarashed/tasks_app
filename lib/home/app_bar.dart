@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:tasks_app/tools/Colors/colors.dart';
 
 class AppBarview extends StatelessWidget {
   const AppBarview({
@@ -22,7 +23,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Color.fromARGB(246, 255, 255, 255),
+      backgroundColor: white,
       leading: Builder(builder: (context) {
         return IconButton(
           icon: Image.asset('images/user.png', fit: BoxFit.cover, height: 32),

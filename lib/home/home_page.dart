@@ -5,20 +5,27 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:freestyle_speed_dial/freestyle_speed_dial.dart';
+import 'package:tasks_app/home/task.dart';
 import 'package:tasks_app/screens/Tasks/month_page.dart';
 import 'package:tasks_app/screens/Tasks/planned_page.dart';
 import 'package:tasks_app/screens/Tasks/today_page.dart';
 import 'package:tasks_app/screens/Tasks/week_page.dart';
 import 'package:tasks_app/home/task_list.dart';
 
-class Task {
-  late String title;
-  late bool isChecked;
-  Task({required this.title, this.isChecked = false});
-}
+// class Task {
+//   late String title;
+//   late bool isChecked;
+//   Task({required this.title, this.isChecked = false});
+// }
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  List<Task> taskList = [
+    Task(title: 'Task1'),
+    Task(title: 'Task2'),
+    Task(title: 'Task3'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +39,7 @@ class HomePage extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 206, 224, 241),
           progressColor: Color.fromARGB(201, 219, 152, 255),
           circularStrokeCap: CircularStrokeCap.round,
+          
           percent: 0.6,
           center: SizedBox(
             height: 50,
@@ -53,6 +61,7 @@ class HomePage extends StatelessWidget {
                     color: Color.fromARGB(255, 98, 1, 86),
                   ),
                 ),
+                
               ],
             ),
           ),
