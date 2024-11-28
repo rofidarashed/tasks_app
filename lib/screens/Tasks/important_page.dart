@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasks_app/home/action_button.dart';
+import '../../home/action_button.dart';
 
 class ImportantPage extends StatelessWidget {
   const ImportantPage({super.key});
@@ -12,7 +12,7 @@ class ImportantPage extends StatelessWidget {
         title: const Text('Important'),
       ),
       body: const SingleChildScrollView(),
-      floatingActionButton:  ActionButton(),
+      floatingActionButton: ActionButton(),
     );
   }
 }

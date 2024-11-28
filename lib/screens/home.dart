@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tasks_app/home/app_bar.dart';
-import 'package:tasks_app/home/drawer_widget.dart';
-import 'package:tasks_app/home/home_page.dart';
-import 'package:tasks_app/tools/Colors/colors.dart';
+import '../../home/app_bar.dart';
+import '../../home/drawer_widget.dart';
+import '../../home/home_page.dart';
+import '../../tools/Colors/colors.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

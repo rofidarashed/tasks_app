@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:tasks_app/tools/Colors/colors.dart';
+import '../../tools/Colors/colors.dart';
 
 class AppBarview extends StatelessWidget {
   const AppBarview({

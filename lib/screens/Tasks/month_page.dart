@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tasks_app/home/action_button.dart';
-import 'package:tasks_app/home/task_list.dart';
+import '../../home/action_button.dart';
+import '../../home/task_list.dart';
 
 class MonthPage extends StatelessWidget {
   const MonthPage({super.key});

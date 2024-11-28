@@ -5,12 +5,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:freestyle_speed_dial/freestyle_speed_dial.dart';
-import 'package:tasks_app/home/task.dart';
-import 'package:tasks_app/screens/Tasks/month_page.dart';
-import 'package:tasks_app/screens/Tasks/planned_page.dart';
-import 'package:tasks_app/screens/Tasks/today_page.dart';
-import 'package:tasks_app/screens/Tasks/week_page.dart';
-import 'package:tasks_app/home/task_list.dart';
+import '../home/task.dart';
+import '../screens/Tasks/month_page.dart';
+import '../screens/Tasks/planned_page.dart';
+import '../screens/Tasks/today_page.dart';
+import '../screens/Tasks/week_page.dart';
+import '../home/task_list.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {

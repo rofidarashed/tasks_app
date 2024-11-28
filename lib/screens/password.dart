@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:tasks_app/screens/home.dart';
+import '../../screens/home.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:tasks_app/tools/Colors/colors.dart';
+import '../../tools/Colors/colors.dart';
 
 class Password extends StatelessWidget {
   const Password({super.key});

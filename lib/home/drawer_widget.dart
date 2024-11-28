@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:tasks_app/screens/Tasks/important_page.dart';
-import 'package:tasks_app/screens/Tasks/trash_page.dart';
+import '../screens/Tasks/important_page.dart';
+import '../screens/Tasks/trash_page.dart';
 
 import '../screens/Tasks/month_page.dart';
 import '../screens/Tasks/planned_page.dart';

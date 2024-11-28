@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tasks_app/screens/password.dart';
-import 'package:tasks_app/tools/Colors/colors.dart';
+import '../../screens/password.dart';
+import '../../tools/Colors/colors.dart';
 
 class Start extends StatefulWidget {
   const Start({super.key});

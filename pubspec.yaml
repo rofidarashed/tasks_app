@@ -31,9 +31,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - images/user.png
-    - images/To-Do-Task.png
+    - assets/images/user.png
+    - assets/images/To-Do-Task.png
   fonts:
     - family: Dancing Script
       fonts:
-        - asset: fonts/Rubik-VariableFont_wght.ttf
+        - asset: assets/fonts/Rubik-VariableFont_wght.ttf
