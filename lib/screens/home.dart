@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tasks_app/home/app_bar.dart';
 import 'package:tasks_app/home/drawer_widget.dart';
 import 'package:tasks_app/home/home_page.dart';
+import 'package:tasks_app/tools/Colors/colors.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -16,7 +17,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: white,
         drawer: const Drawer(
           child: DrawerWidget(),
         ),

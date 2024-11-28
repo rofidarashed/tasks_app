@@ -1,12 +1,15 @@
 import 'package:equatable/equatable.dart';
 
+// ignore: must_be_immutable
 class Task extends Equatable {
   final String title;
+  final String description;
   bool? isChecked;
   bool? isDeleted;
 
   Task({
     required this.title,
+    required this.description,
     this.isChecked,
     this.isDeleted,
   }) {
@@ -16,11 +19,13 @@ class Task extends Equatable {
 
   Task copyWith({
     String? title,
+    String? description,
     bool? isChecked,
     bool? isDeleted,
   }) {
     return Task(
       title: title ?? this.title,
+      description: description ?? this.description,
       isChecked: isChecked ?? this.isChecked,
       isDeleted: isDeleted ?? this.isDeleted,
     );
@@ -29,6 +34,7 @@ class Task extends Equatable {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'title': title,
+      'description': description,
       'isChecked': isChecked,
       'isDeleted': isDeleted,
     };
@@ -37,6 +43,7 @@ class Task extends Equatable {
   factory Task.fromMap(Map<String, dynamic> map) {
     return Task(
       title: map['title'] as String,
+      description: map['description'] as String,
       isChecked: map['isChecked'] != null ? map['isChecked'] as bool : null,
       isDeleted: map['isDeleted'] != null ? map['isDeleted'] as bool : null,
     );
@@ -44,6 +51,7 @@ class Task extends Equatable {
 
   @override
   List<Object?> get props => [
+        description,
         title,
         isChecked,
         isDeleted,

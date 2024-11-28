@@ -12,7 +12,7 @@ class Password extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: white,
         body: MyCustomForm(),
       ),
     );
@@ -110,17 +110,17 @@ class MyCustomFormState extends State<MyCustomForm> {
                       toastLength: Toast.LENGTH_SHORT,
                       gravity: ToastGravity.CENTER,
                       timeInSecForIosWeb: 1,
-                      textColor: Colors.white,
+                      textColor: white,
                       fontSize: 16.0);
                 } else {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const Home()));
                 }
               },
-              child: const Text(
+              child:  Text(
                 'Submit',
                 style: TextStyle(
-                  color: Color.fromARGB(255, 255, 255, 255),
+                  color: white,
                 ),
               ),
             );

@@ -9,7 +9,7 @@ class TaskList extends StatefulWidget {
 
 class _TaskListState extends State<TaskList> {
   List<String> checkedItems = [];
-  List<String> uncheckedItems = ['vjv'];
+  List<String> uncheckedItems = [];
 
   void _handleCheckboxChange(String label, bool isChecked) {
     setState(() {

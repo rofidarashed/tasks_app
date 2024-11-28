@@ -20,7 +20,7 @@ class _StartState extends State<Start> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: white,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
