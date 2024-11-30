@@ -28,38 +28,10 @@ class HomePage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        CircularPercentIndicator(
-          radius: 110,
-          lineWidth: 20,
-          backgroundColor: Color.fromARGB(255, 206, 224, 241),
-          progressColor: Color.fromARGB(201, 219, 152, 255),
-          circularStrokeCap: CircularStrokeCap.round,
-          percent: 0.6,
-          center: SizedBox(
-            height: 50,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Text(
-                  '60%',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Color.fromARGB(255, 98, 1, 86),
-                  ),
-                ),
-                Text(
-                  'Done for today',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 98, 1, 86),
-                  ),
-                ),
-              ],
-            ),
-          ),
+        _buildTaskProgress(),
+        Expanded(
+          child: TaskList(),
         ),
-        TaskList(),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -149,6 +121,40 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+
+  CircularPercentIndicator _buildTaskProgress() {
+    return CircularPercentIndicator(
+      radius: 110,
+      lineWidth: 20,
+      backgroundColor: Color.fromARGB(255, 206, 224, 241),
+      progressColor: Color.fromARGB(201, 219, 152, 255),
+      circularStrokeCap: CircularStrokeCap.round,
+      percent: 0.6,
+      center: SizedBox(
+        height: 50,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            Text(
+              '60%',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Color.fromARGB(255, 98, 1, 86),
+              ),
+            ),
+            Text(
+              'Done for today',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 98, 1, 86),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

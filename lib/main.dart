@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:tasks_app/screens/start.dart';
+import '../../screens/start.dart';
 
 void main() {
   runApp(MainApp());

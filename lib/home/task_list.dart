@@ -25,35 +25,33 @@ class _TaskListState extends State<TaskList> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Scrollbar(
-        thumbVisibility: true,
-        child: ListView(
-          children: [
-            ...uncheckedItems.map((item) => LabeledCheckbox(
-                  label: item,
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  isChecked: false,
-                  onChanged: (bool newValue) {
-                    _handleCheckboxChange(item, newValue);
-                  },
-                )),
-            ExpansionTile(
-              title: const Text('Completed'),
-              children: checkedItems
-                  .map((item) => ListTile(
-                        title: Text(item),
-                        trailing: Checkbox(
-                          value: true,
-                          onChanged: (bool? newValue) {
-                            _handleCheckboxChange(item, newValue!);
-                          },
-                        ),
-                      ))
-                  .toList(),
-            ),
-          ],
-        ),
+    return Scrollbar(
+      thumbVisibility: true,
+      child: ListView(
+        children: [
+          ...uncheckedItems.map((item) => LabeledCheckbox(
+                label: item,
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                isChecked: false,
+                onChanged: (bool newValue) {
+                  _handleCheckboxChange(item, newValue);
+                },
+              )),
+          ExpansionTile(
+            title: const Text('Completed'),
+            children: checkedItems
+                .map((item) => ListTile(
+                      title: Text(item),
+                      trailing: Checkbox(
+                        value: true,
+                        onChanged: (bool? newValue) {
+                          _handleCheckboxChange(item, newValue!);
+                        },
+                      ),
+                    ))
+                .toList(),
+          ),
+        ],
       ),
     );
   }
