@@ -53,44 +53,55 @@ class MyCustomFormState extends State<MyCustomForm> {
             obscureText: view,
             controller: _controller,
             decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                labelText: 'Password',
-                errorText: _validate ? 'Required' : null,
-                suffix: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        if (view) {
-                          view = false;
-                        } else {
-                          view = true;
-                        }
-                      });
-                    },
-                    icon: Icon(
-                        view == true ? Icons.remove_red_eye : Icons.password))),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              labelText: 'Password',
+              errorText: _validate ? 'Required' : null,
+              suffixIcon: IconButton(
+                onPressed: () {
+                  setState(() {
+                    if (view) {
+                      view = false;
+                    } else {
+                      view = true;
+                    }
+                  });
+                },
+                icon:
+                    Icon(view == true ? Icons.remove_red_eye : Icons.password),
+              ),
+            ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 29, vertical: 9),
-          child: TextField(
+          child: TextFormField(
             obscureText: view,
             controller: _controller1,
             decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                labelText: 'Confirm password',
-                errorText: _validate ? 'Required' : null,
-                suffix: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        if (view) {
-                          view = false;
-                        } else {
-                          view = true;
-                        }
-                      });
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              labelText: 'Confirm password',
+              errorText: _validate ? 'Required' : null,
+              suffixIcon: IconButton(
+                onPressed: () {
+                  setState(
+                    () {
+                      if (view) {
+                        view = false;
+                      } else {
+                        view = true;
+                      }
                     },
-                    icon: Icon(
-                        view == true ? Icons.remove_red_eye : Icons.password))),
+                  );
+                },
+                icon:
+                    Icon(view == true ? Icons.remove_red_eye : Icons.password),
+              ),
+            ),
+            style: TextStyle(),
           ),
         ),
         Builder(
@@ -117,7 +128,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                       MaterialPageRoute(builder: (context) => const Home()));
                 }
               },
-              child:  Text(
+              child: Text(
                 'Submit',
                 style: TextStyle(
                   color: white,

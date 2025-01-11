@@ -40,7 +40,7 @@ class _StartState extends State<Start> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 100),
               child: Image(
-                image: AssetImage('images/To-Do-Task.png'),
+                image: AssetImage('assets/images/To-Do-Task.png'),
               ),
             ),
             Padding(
@@ -48,7 +48,11 @@ class _StartState extends State<Start> {
               child: TextField(
                 controller: _controller,
                 decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
+                  
+                  border:  OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+
+                  ),
                   labelText: 'Enter your email',
                   errorText: _validate ? 'Required' : null,
                 ),
@@ -59,7 +63,10 @@ class _StartState extends State<Start> {
               child: TextField(
                 controller: _controller1,
                 decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+
+                  ),
                   labelText: 'Enter your username',
                   errorText: _validate1 ? 'Required' : null,
                 ),
@@ -84,10 +91,10 @@ class _StartState extends State<Start> {
                               builder: (context) => const Password()));
                     }
                   },
-                  child: const Text(
+                  child: Text(
                     'Next',
                     style: TextStyle(
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      color: white,
                     ),
                   ),
                 );

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "394344226042",
+    "project_id": "tasks-app-11829",
+    "storage_bucket": "tasks-app-11829.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394344226042:android:c99e60e72d1ddb4dd13d43",
+        "android_client_info": {
+          "package_name": "com.example.tasks_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmdVVJ5IM9bzdq50wT3UcgfNT0bya4ccc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

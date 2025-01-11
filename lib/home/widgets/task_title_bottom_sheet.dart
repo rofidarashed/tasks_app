@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:keyboard_detection/keyboard_detection.dart';
 import '../../tools/Colors/colors.dart';
+import '../task.dart';
 
 class TaskTitleBottomSheet extends StatefulWidget {
   const TaskTitleBottomSheet({super.key});
@@ -10,6 +12,8 @@ class TaskTitleBottomSheet extends StatefulWidget {
 }
 
 class _TaskTitleBottomSheetState extends State<TaskTitleBottomSheet> {
+  final TextEditingController taskTitleController = TextEditingController();
+  final TextEditingController taskDescController = TextEditingController();
   bool isKeyboardOpen = false;
   @override
   Widget build(BuildContext context) {
@@ -47,31 +51,33 @@ class _TaskTitleBottomSheetState extends State<TaskTitleBottomSheet> {
           children: [
             Expanded(
               child: ListView(
-                children: const [
+                children: [
                   Padding(
-                    padding: EdgeInsets.only(
-                      top: 10.0,
+                    padding: const EdgeInsets.only(
+                      top: 20.0,
                       left: 20.0,
                       right: 20.0,
                     ),
-                    child: TextField(
+                    child: TextFormField(
                       decoration: InputDecoration(
-                        border: InputBorder.none,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
                         labelText: 'Task Title',
                       ),
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Divider(
-                    indent: 15,
-                    endIndent: 15,
-                  ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15.0),
-                    child: TextField(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 20),
+                    child: TextFormField(
                       decoration: InputDecoration(
-                          border: InputBorder.none, labelText: 'Description'),
-                      scrollPadding: EdgeInsets.all(20.0),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          labelText: 'Description'),
+                      scrollPadding: const EdgeInsets.all(20.0),
                       keyboardType: TextInputType.multiline,
                       maxLines: null,
                     ),
@@ -85,7 +91,11 @@ class _TaskTitleBottomSheetState extends State<TaskTitleBottomSheet> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: darkPurble1,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  final taskTitle = taskTitleController.text;
+                  final taskDesc = taskDescController.text;
+                  Task(title: taskTitle, description: taskDesc);
+                },
                 child: Text(
                   'Create Task',
                   style: TextStyle(

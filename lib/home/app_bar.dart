@@ -26,7 +26,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: white,
       leading: Builder(builder: (context) {
         return IconButton(
-          icon: Image.asset('images/user.png', fit: BoxFit.cover, height: 32),
+          icon: Image.asset('assets/images/user.png', fit: BoxFit.cover, height: 32),
           onPressed: () {
             Scaffold.of(context).openDrawer();
           },

@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import '../screens/Tasks/important_page.dart';
 import '../screens/Tasks/trash_page.dart';
-
 import '../screens/Tasks/month_page.dart';
 import '../screens/Tasks/planned_page.dart';
 import '../screens/Tasks/today_page.dart';
@@ -26,7 +25,7 @@ class DrawerWidget extends StatelessWidget {
                 children: const [
                   CircleAvatar(
                     radius: 40,
-                    backgroundImage: AssetImage('images/user.png'),
+                    backgroundImage: AssetImage('assets/images/user.png'),
                   )
                 ],
               ),
