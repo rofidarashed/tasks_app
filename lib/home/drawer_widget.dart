@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import '../screens/Tasks/important_page.dart';
-import '../screens/Tasks/trash_page.dart';
 import '../screens/Tasks/month_page.dart';
 import '../screens/Tasks/planned_page.dart';
 import '../screens/Tasks/today_page.dart';
 import '../screens/Tasks/week_page.dart';
+import '../screens/trash.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -78,14 +78,9 @@ class DrawerWidget extends StatelessWidget {
               leading: const Icon(Icons.delete),
               title: const Text('Trash'),
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const TrashPage()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Trash()));
               },
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Settings'),
-              onTap: () {},
             ),
           ],
         );
