@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:keyboard_detection/keyboard_detection.dart';
 import '../../tools/Colors/colors.dart';
-import '../task.dart';
 
 class TaskTitleBottomSheet extends StatefulWidget {
   const TaskTitleBottomSheet({super.key});
@@ -12,8 +11,8 @@ class TaskTitleBottomSheet extends StatefulWidget {
 }
 
 class _TaskTitleBottomSheetState extends State<TaskTitleBottomSheet> {
-  final TextEditingController taskTitleController = TextEditingController();
-  final TextEditingController taskDescController = TextEditingController();
+  final taskTitleController = TextEditingController();
+  final taskDescController = TextEditingController();
   bool isKeyboardOpen = false;
   @override
   Widget build(BuildContext context) {
@@ -59,6 +58,7 @@ class _TaskTitleBottomSheetState extends State<TaskTitleBottomSheet> {
                       right: 20.0,
                     ),
                     child: TextFormField(
+                      controller: taskTitleController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
@@ -72,6 +72,7 @@ class _TaskTitleBottomSheetState extends State<TaskTitleBottomSheet> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 20.0, vertical: 20),
                     child: TextFormField(
+                      controller: taskDescController,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
@@ -92,9 +93,12 @@ class _TaskTitleBottomSheetState extends State<TaskTitleBottomSheet> {
                   backgroundColor: darkPurble1,
                 ),
                 onPressed: () {
-                  final taskTitle = taskTitleController.text;
-                  final taskDesc = taskDescController.text;
-                  Task(title: taskTitle, description: taskDesc);
+                  final taskDetails = {
+                    'taskTitle': taskTitleController.text,
+                    'taskDesc': taskDescController.text,
+                  };
+
+                  _addTasks(taskDetails);
                 },
                 child: Text(
                   'Create Task',
@@ -111,5 +115,21 @@ class _TaskTitleBottomSheetState extends State<TaskTitleBottomSheet> {
         ),
       ),
     );
+  }
+
+  Future _addTasks(Map<String, String> taskDetails) async {
+    DocumentReference docRef =
+        await FirebaseFirestore.instance.collection('tasks').add({'taskDetails': taskDetails,});
+    String taskId = docRef.id;
+    await FirebaseFirestore.instance.collection('tasks').doc(taskId).update(
+      {'id': taskId},
+    );
+
+    _clearAll();
+  }
+
+  void _clearAll() {
+    taskTitleController.text = '';
+    taskDescController.text = '';
   }
 }

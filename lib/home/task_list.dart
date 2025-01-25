@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class TaskList extends StatefulWidget {
   const TaskList({super.key});
@@ -8,17 +9,37 @@ class TaskList extends StatefulWidget {
 }
 
 class _TaskListState extends State<TaskList> {
-  List<String> checkedItems = [];
-  List<String> uncheckedItems = [];
+  List<Map<String, dynamic>> checkedItems = [];
+  List<Map<String, dynamic>> uncheckedItems = [];
 
-  void _handleCheckboxChange(String label, bool isChecked) {
+  @override
+  void initState() {
+    super.initState();
+
+    FirebaseFirestore.instance.collection('tasks').snapshots().listen((event) {
+      setState(() {
+        uncheckedItems = [];
+      });
+      for (var doc in event.docs) {
+        final taskDetails = doc.data()["taskDetails"];
+
+        if (taskDetails != null && taskDetails is Map<String, dynamic>) {
+          setState(() {
+            uncheckedItems.add(taskDetails); // Add the taskDetails map
+          });
+        }
+      }
+    });
+  }
+
+  void _handleCheckboxChange(Map<String, dynamic> item, bool isChecked) {
     setState(() {
       if (isChecked) {
-        uncheckedItems.remove(label);
-        checkedItems.add(label);
+        uncheckedItems.remove(item);
+        checkedItems.add(item);
       } else if (!isChecked) {
-        checkedItems.remove(label);
-        uncheckedItems.add(label);
+        checkedItems.remove(item);
+        uncheckedItems.add(item);
       }
     });
   }
@@ -30,8 +51,10 @@ class _TaskListState extends State<TaskList> {
       child: ListView(
         children: [
           ...uncheckedItems.map((item) => LabeledCheckbox(
-                label: item,
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                label:
+                    '${item['taskTitle'] ?? 'Unnamed Task'}\n${item['taskDesc'] ?? ''}',
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 isChecked: false,
                 onChanged: (bool newValue) {
                   _handleCheckboxChange(item, newValue);
@@ -41,7 +64,9 @@ class _TaskListState extends State<TaskList> {
             title: const Text('Completed'),
             children: checkedItems
                 .map((item) => ListTile(
-                      title: Text(item),
+                      title: Text(
+                        '${item['taskTitle'] ?? 'Unnamed Task'}\n${item['taskDesc'] ?? ''}',
+                      ),
                       trailing: Checkbox(
                         value: true,
                         onChanged: (bool? newValue) {

@@ -5,22 +5,16 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:freestyle_speed_dial/freestyle_speed_dial.dart';
-import '../home/task.dart';
+import 'package:tasks_app/home/task.dart';
+import 'package:tasks_app/home/task_list.dart';
 import '../screens/Tasks/month_page.dart';
 import '../screens/Tasks/planned_page.dart';
 import '../screens/Tasks/today_page.dart';
 import '../screens/Tasks/week_page.dart';
-import '../home/task_list.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
   HomePage({super.key});
-
-  List<Task> taskList = [
-    Task(title: 'Task1', description: ''),
-    Task(title: 'Task2', description: ''),
-    Task(title: 'Task3', description: ''),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +82,6 @@ class HomePage extends StatelessWidget {
                     },
                     child: const Icon(Icons.sunny),
                   ),
-                  
                   FloatingActionButton.small(
                     onPressed: () {
                       Navigator.push(

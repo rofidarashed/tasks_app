@@ -1,59 +1,74 @@
-import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class Task extends Equatable {
+class Tasks extends StatefulWidget {
   final String title;
   final String description;
   bool? isChecked;
   bool? isDeleted;
 
-  Task({
+  Tasks({
+    super.key,
     required this.title,
     required this.description,
-    this.isChecked,
-    this.isDeleted,
-  }) {
-    isChecked = isChecked ?? false;
-    isDeleted = isDeleted ?? false;
+    this.isChecked = false,
+    this.isDeleted = false,
+  });
+
+  @override
+  State<Tasks> createState() => _TasksState();
+}
+
+class _TasksState extends State<Tasks> {
+  late bool isChecked;
+  late bool isDeleted;
+
+
+  @override
+  void initState() {
+    super.initState();
+    isChecked = widget.isChecked!;
+    isDeleted = widget.isDeleted!;
   }
 
-  Task copyWith({
-    String? title,
-    String? description,
-    bool? isChecked,
-    bool? isDeleted,
-  }) {
-    return Task(
-      title: title ?? this.title,
-      description: description ?? this.description,
-      isChecked: isChecked ?? this.isChecked,
-      isDeleted: isDeleted ?? this.isDeleted,
-    );
+  void toggleChecked() {
+    setState(() {
+      isChecked = !isChecked;
+    });
   }
 
-  Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'title': title,
-      'description': description,
-      'isChecked': isChecked,
-      'isDeleted': isDeleted,
-    };
-  }
-
-  factory Task.fromMap(Map<String, dynamic> map) {
-    return Task(
-      title: map['title'] as String,
-      description: map['description'] as String,
-      isChecked: map['isChecked'] != null ? map['isChecked'] as bool : null,
-      isDeleted: map['isDeleted'] != null ? map['isDeleted'] as bool : null,
-    );
+  void deleteTask() {
+    setState(() {
+      isDeleted = true;
+    });
   }
 
   @override
-  List<Object?> get props => [
-        description,
-        title,
-        isChecked,
-        isDeleted,
-      ];
+  Widget build(BuildContext context) {
+    if (isDeleted) {
+      return SizedBox.shrink(); // Returns an empty widget if the task is deleted
+    }
+
+    return ListTile(
+      leading: Checkbox(
+        value: isChecked,
+        onChanged: (value) {
+          if (value != null) toggleChecked();
+        },
+      ),
+      title: Text(
+        widget.title,
+        style: TextStyle(
+          decoration: isChecked ? TextDecoration.lineThrough : TextDecoration.none,
+        ),
+      ),
+      subtitle: Text(widget.description),
+      trailing: IconButton(
+        icon: const Icon(Icons.delete),
+        onPressed: deleteTask,
+      ),
+    );
+  }
 }
+
+  
