@@ -5,7 +5,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:freestyle_speed_dial/freestyle_speed_dial.dart';
-import 'package:tasks_app/home/task.dart';
 import 'package:tasks_app/home/task_list.dart';
 import '../screens/Tasks/month_page.dart';
 import '../screens/Tasks/planned_page.dart';
